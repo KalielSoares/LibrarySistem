@@ -3,8 +3,9 @@ namespace Biblioteca {
     class Program {
         static void Main(string[] args) {
 
-            List<User> Pessoas = new List<User>();
-            List<Livro> Livros = new List<Livro>();
+            Library library = new Library();
+
+
             int resposta;
 
 
@@ -15,47 +16,54 @@ namespace Biblioteca {
             do {
 
 
+
+
                 switch (resposta) {
-                    
-                case 1:
-                    string register;
-                    do {
 
-                        Console.WriteLine("\nDigite os dados do novo usuário: ");
-                        Console.WriteLine("\nDigite o nome: ");
-                        string nome = Console.ReadLine();
-                        Console.WriteLine("\nDigite o cpf: ");
-                        long cpf = long.Parse(Console.ReadLine());
+                    //Cadastro de Usuario
+                    case 1:
+                        string register;
+                        do {
 
-                        Pessoas.Add(new User(nome, cpf));
+                            Console.WriteLine("\nDigite os dados do novo usuário: ");
+                            Console.WriteLine("\nDigite o nome: ");
+                            string nome = Console.ReadLine();
+                            Console.WriteLine("\nDigite o cpf: ");
+                            long cpf = long.Parse(Console.ReadLine());
 
-                        Console.WriteLine("Deseja Continuar?(s/n) ");
-                        register = Console.ReadLine();
-                    } while (register == "s");
+                            library.Users.Add(new User(nome, cpf));
+
+                            Console.WriteLine("Deseja Continuar?(s/n) ");
+                            register = Console.ReadLine();
+                        } while (register == "s");
                         break;
-
+                    //Cadastro de Livro
                     case 2:
                         do {
-                        Console.WriteLine("Vamos cadastrar um livro:");
-                        Console.WriteLine("Qual o nome do livro?");
-                        string title = Console.ReadLine();
-                        Console.WriteLine("Qual o nome do autor desse livro?");
-                        string autor = Console.ReadLine();
-                        Console.WriteLine("Qual o Ano de lançamento desse livro?");
-                        int yearReleased = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Vamos cadastrar um livro:");
+                            Console.WriteLine("Qual o nome do livro?");
+                            string title = Console.ReadLine();
+                            Console.WriteLine("Qual o nome do autor desse livro?");
+                            string autor = Console.ReadLine();
+                            Console.WriteLine("Qual o Ano de lançamento desse livro?");
+                            int yearReleased = int.Parse(Console.ReadLine());
 
-                        Livros.Add(new Livro(title, autor, yearReleased));
+                            library.Catalog.Add(new Book(title, autor, yearReleased));
 
-                        Console.WriteLine("Deseja Continuar?(s/n) ");
-                        register = Console.ReadLine();
+                            Console.WriteLine("Deseja Continuar?(s/n) ");
+                            register = Console.ReadLine();
 
-                        } while (register == "s") ;
+                        } while (register == "s");
+                        break;
+                    //Pegar Livro Emprestado
+                    case 3:
+
                         break;
                     case 4:
-                   foreach (var pessoa in Pessoas) {
-                        pessoa.ExibirInformacoes();
-                    }
-                    break;
+                        foreach (var pessoa in library.Users) {
+                            Console.WriteLine(pessoa);
+                        }
+                        break;
 
                 }
 
@@ -66,21 +74,10 @@ namespace Biblioteca {
 
             } while (resposta != 5);
         }
-                 }
-
-            
-
-            
-
-            /*
-            
-            
-
-            libre.info();
-
-            */
-        }
-    
+    }
 
 
-    
+}
+
+
+

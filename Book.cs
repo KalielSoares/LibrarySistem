@@ -1,24 +1,12 @@
-﻿using System.Xml.Linq;
-
-namespace Biblioteca {
-    public class Livro {
+﻿namespace Biblioteca {
+    public class Book {
 
         public string Title;
         public string Autor;
         public int YearReleased;
         public bool available = true;
-        public string borrower;
 
-        public void lend() {
-            available = false;
-        }
-
-        public void returnBook() {
-            available = true;
-        }
-
-
-        public Livro(string title, string autor, int yearReleased) {
+        public Book(string title, string autor, int yearReleased) {
             Title = title;
             Autor = autor;
             YearReleased = yearReleased;

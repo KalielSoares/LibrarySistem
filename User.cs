@@ -4,16 +4,17 @@
         public long CPF;
         public string Name;
 
-        public List<Livro> borrowed_books = new List<Livro>();
+        public List<Book> borrowed_books;
 
 
         public User(string name, long cpf) {
            Name = name;
             CPF = cpf;
+            borrowed_books = new List<Book>();
         }
 
-        public void ExibirInformacoes() {
-            Console.WriteLine($"ID:{CPF} Nome: {Name}\n");
+        public override string ToString() {
+            return $"{Name}\n{CPF}\n";
         }
     }
 }
