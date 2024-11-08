@@ -31,7 +31,7 @@ namespace Biblioteca {
                             Console.WriteLine("\nDigite o cpf: ");
                             long cpf = long.Parse(Console.ReadLine());
 
-                            library.Users.Add(new User(nome, cpf));
+                            library.createUser(new User(nome, cpf));
 
                             Console.WriteLine("Deseja Continuar?(s/n) ");
                             register = Console.ReadLine();
@@ -47,8 +47,9 @@ namespace Biblioteca {
                             string autor = Console.ReadLine();
                             Console.WriteLine("Qual o Ano de lançamento desse livro?");
                             int yearReleased = int.Parse(Console.ReadLine());
+                            bool avaliable;
 
-                            library.Catalog.Add(new Book(title, autor, yearReleased));
+                            library.addBook(new Book(title, autor, yearReleased, avaliable = true));
 
                             Console.WriteLine("Deseja Continuar?(s/n) ");
                             register = Console.ReadLine();
@@ -57,6 +58,8 @@ namespace Biblioteca {
                         break;
                     //Pegar Livro Emprestado
                     case 3:
+
+
 
                         break;
                     case 4:

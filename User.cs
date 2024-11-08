@@ -8,9 +8,15 @@
 
 
         public User(string name, long cpf) {
-           Name = name;
+            Name = name;
             CPF = cpf;
             borrowed_books = new List<Book>();
+        }
+
+        public void borrow(Book Book) {
+            borrowed_books.Add(Book);
+            Book.Available = true;
+            Console.WriteLine("Livro adicionado a lista");
         }
 
         public override string ToString() {

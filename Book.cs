@@ -4,17 +4,19 @@
         public string Title;
         public string Autor;
         public int YearReleased;
-        public bool available = true;
+        public bool Available = false;
 
-        public Book(string title, string autor, int yearReleased) {
+        public Book(string title, string autor, int yearReleased, bool available) {
             Title = title;
             Autor = autor;
             YearReleased = yearReleased;
+            Available = available;
         }
 
 
-        public void info() {
-            Console.WriteLine($"Title: {Title}\nAutor: {Autor}\nYear Released: {YearReleased}\nAvailable: {available}");
+        public override string ToString() {
+            return $"Title: {Title}\nAutor: {Autor}\nYear Released: {YearReleased}\n";
         }
+
     }
 }
